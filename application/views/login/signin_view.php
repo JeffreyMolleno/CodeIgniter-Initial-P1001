@@ -17,7 +17,8 @@
                 echo form_label('Username');
                 $data_username = array('name'=>'f_username',
                                        'id'=>'f_id_username',
-                                       'class'=>'input_box form-control');
+                                       'class'=>'input_box form-control',
+                                       'value'=> $username ?? '' );
                 echo form_input($data_username);
             
                 //password form
@@ -33,7 +34,7 @@
            ?>
 
             <div class="login-redirect-container">
-                <p class="login-redirect-context">Already have an account? &nbsp <a class="login-redirect-link" href="<?php echo site_url('signup')?>"> click here to login</a></p>
+                <p class="login-redirect-context">Don't have an account? <a class="login-redirect-link" href="<?php echo site_url('signup')?>"> click here to register</a></p>
             </div>
         </div>
     </div>

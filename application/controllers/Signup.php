@@ -4,10 +4,10 @@ class Signup extends CI_controller{
     public function __construct(){
         parent::__construct();
 
-        // for what?
+        // $this->session->unset_userdata('username','id');
+
         // on loading form helper library
-        // assist in working with forms -> to what extent?
-        $this->load->helper('form');
+        // $this->load->helper('form');
 
         // Load form validation library
         $this->load->library('form_validation');
@@ -37,10 +37,25 @@ class Signup extends CI_controller{
 
         $res = $this->signin_model->login(array('username'=>$this->input->post('f_username'), 'password'=>$this->input->post('f_password')));
 
-        echo '<script>console.log('.var_dump($res).');</script>';
-      
+        if($res){
+            // inserting session
+            $userdata = array( 'username'=> $res[0]->username,
+                               'id' => $res[0]->id );
+            $this->session->set_userdata($userdata);
+
+            echo redirect('main');
+        }else{
+            $this->load_prev_data();
+        }
+    }
+
+    public function load_prev_data(){
+
+        $data = array('username'=>$this->input->post('f_username'),
+                      'password'=>$this->input->post('f_password'));
+
         $this->load->view('links.php');
-        $this->load->view('login/signin_view');
+        $this->load->view('login/signin_view', $data);
     }
 
     public function login(){

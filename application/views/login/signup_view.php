@@ -46,7 +46,7 @@
         ?> 
 
             <div class="login-redirect-container">
-                <p class="login-redirect-context">Already have an account? &nbsp <a class="login-redirect-link" href="<?php echo site_url('signup/login');?>"> click here to login</a></p>
+                <p class="login-redirect-context">Already have an account? <a class="login-redirect-link" href="<?php echo site_url('signup/login');?>"> click here to login</a></p>
             </div>
         </div>
     </div>
