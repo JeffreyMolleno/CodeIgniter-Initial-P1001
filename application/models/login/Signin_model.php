@@ -14,4 +14,10 @@
                 $this->db->insert('user', $data);
             }
         }
+
+        public function login($data){
+            $res = $this->db->get_where('user', array('username'=>$data['username'], 'password'=>$data['password']));
+
+            return $res->num_rows() > 0? true : false;
+        }
     }

@@ -9,7 +9,7 @@
     <div class='form-container'>
         <div class="form-border">
             <?php
-                echo form_open('signup_controller/data_submitted');
+                echo form_open('signup/login_check');
 
                 echo form_label('Login Component');
 
@@ -36,8 +36,6 @@
                 <p class="login-redirect-context">Already have an account? &nbsp <a class="login-redirect-link" href="<?php echo site_url('signup')?>"> click here to login</a></p>
             </div>
         </div>
-        
-       
     </div>
 </body>
 </html>

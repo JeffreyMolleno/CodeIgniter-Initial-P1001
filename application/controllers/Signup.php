@@ -21,7 +21,7 @@ class Signup extends CI_controller{
 		$this->load->view('login/signup_view');
     }
 
-    public function data_submitted(){
+    public function register_data(){
 
         // on storing data from POST method
         $this->signin_model->register(array('username'=>$this->input->post('f_username'), 'password'=>$this->input->post('f_password')));
@@ -31,6 +31,16 @@ class Signup extends CI_controller{
 
         $this->load->view('links.php');
         $this->load->view('login/signin_view', $data);
+    }
+
+    public function login_check(){
+
+        $res = $this->signin_model->login(array('username'=>$this->input->post('f_username'), 'password'=>$this->input->post('f_password')));
+
+        echo '<script>console.log('.var_dump($res).');</script>';
+      
+        $this->load->view('links.php');
+        $this->load->view('login/signin_view');
     }
 
     public function login(){

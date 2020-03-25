@@ -10,7 +10,7 @@
     <div class='form-container'>
         <div class='form-border'>
         <?php
-            echo form_open('signup_controller/data_submitted');
+            echo form_open('signup/register_data');
 
             echo form_label('Register component');
             echo '<br>';
